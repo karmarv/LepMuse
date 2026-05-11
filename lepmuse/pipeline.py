@@ -12,7 +12,7 @@ from skimage.io import imread
 from skimage.measure import label, regionprops
 
 from . import landmarks, measurements, preprocessing, scale
-from .results import append_result_csv, init_incremental_csv, load_completed_ids
+from .results import append_result_csv, init_incremental_csv, load_completed_paths
 
 from .config import PipelineConfig
 from .types import ImageRecord, MeasurementResult, Segmenter
@@ -30,9 +30,9 @@ class PipelineRunner:
         records = list(records)
         csv_path = self.config.path_csv
 
-        completed = load_completed_ids(csv_path)
+        completed = load_completed_paths(csv_path)
         if completed:
-            pending = [r for r in records if r.image_id not in completed]
+            pending = [r for r in records if str(r.path) not in completed]
             skipped = len(records) - len(pending)
             print(
                 f"Incremental run: {skipped} already done, {len(pending)} remaining"
@@ -283,7 +283,11 @@ class PipelineRunner:
         fig = next((ax.get_figure() for ax in axes if ax is not None), None)
         if fig is None:
             return
-        output_path = Path(self.config.output_folder) / record.image_id
+        p = Path(record.image_id)
+        stem = p.stem
+        if record.specimen_id:
+            stem = f"{stem}_{record.specimen_id}"
+        output_path = Path(self.config.output_folder) / f"{stem}{p.suffix}"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         dpi = int(1.5 * self.config.dpi) if self.config.detailed_plot else self.config.dpi
         fig.savefig(output_path, dpi=dpi)

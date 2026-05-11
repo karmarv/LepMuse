@@ -32,7 +32,7 @@ def read_manifest(path: str | Path) -> list[ImageRecord]:
         path_column = _first_existing(reader.fieldnames, ["image_path", "image_paths", "path"])
         for row in reader:
             image_path = Path(row[path_column])
-            metadata = {key: value for key, value in row.items() if key not in {path_column, "image_id", "view", "specimen_id"}}
+            metadata = {key: value for key, value in row.items() if key not in {path_column, "image_id", "view", "specimen_id", "voucher"}}
             records.append(
                 ImageRecord(
                     image_id=row.get("image_id") or image_path.name,

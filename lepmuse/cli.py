@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -15,24 +16,46 @@ from .inputs import read_records
 from .results import finalize_csv
 from .segmentation import build_segmenter
 
+# Matches ANSI escape sequences (colours, cursor movement, etc.)
+_ANSI_RE = re.compile(r"\x1b\[[0-9;]*[A-Za-z]|\x1b\][^\x07]*\x07|\x1b.")
+
+
+def _clean_for_log(text: str) -> str:
+    """Strip ANSI codes and collapse carriage-return overwrites for log files.
+
+    Progress bars write partial lines ending with \\r to overwrite themselves
+    in a terminal.  In a log file that produces unreadable noise — we keep
+    only the last segment after the final \\r so each logical line appears once.
+    """
+    text = _ANSI_RE.sub("", text)
+    if "\r" in text:
+        parts = text.split("\r")
+        trailing_nl = "\n" if text.endswith("\n") else ""
+        last = parts[-1] if parts[-1] else (parts[-2] if len(parts) > 1 else "")
+        text = last.rstrip("\n") + trailing_nl
+    return text
+
 
 class _Tee:
-    """Mirror writes to multiple streams (stdout + log file)."""
+    """Mirror writes to the terminal and a clean log file."""
 
-    def __init__(self, *streams):
-        self._streams = streams
+    def __init__(self, terminal, logfile):
+        self._terminal = terminal
+        self._logfile = logfile
 
     def write(self, data: str) -> int:
-        for s in self._streams:
-            s.write(data)
+        self._terminal.write(data)
+        cleaned = _clean_for_log(data)
+        if cleaned:
+            self._logfile.write(cleaned)
         return len(data)
 
     def flush(self) -> None:
-        for s in self._streams:
-            s.flush()
+        self._terminal.flush()
+        self._logfile.flush()
 
     def fileno(self) -> int:
-        return self._streams[0].fileno()
+        return self._terminal.fileno()
 
     def isatty(self) -> bool:
         return False

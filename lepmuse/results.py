@@ -97,8 +97,25 @@ def _fieldnames(rows: list[dict[str, Any]]) -> list[str]:
 _INCREMENTAL_FIELDNAMES = [*MOTHRA_COLUMNS, *EXTRA_COLUMNS]
 
 
-def load_completed_ids(path: str | Path) -> set[str]:
-    """Return image_ids whose status is 'ok' in an existing results CSV.
+def _row_key(row: dict) -> str:
+    """Unique key for a result row.
+
+    Primary: full image_path.
+    Fallback: composite of image_id + view + specimen_id, used only when
+    image_path is absent.
+    """
+    image_path = row.get("image_path", "").strip()
+    if image_path:
+        return image_path
+    return "\x00".join([
+        row.get("image_id", ""),
+        row.get("view", ""),
+        row.get("specimen_id", ""),
+    ])
+
+
+def load_completed_paths(path: str | Path) -> set[str]:
+    """Return row keys (image_path or composite fallback) whose status is 'ok'.
 
     Returns an empty set if the file does not exist or cannot be parsed.
     """
@@ -108,7 +125,7 @@ def load_completed_ids(path: str | Path) -> set[str]:
     try:
         with path.open(newline="") as f:
             reader = csv.DictReader(f)
-            return {row["image_id"] for row in reader if row.get("status") == "ok"}
+            return {_row_key(row) for row in reader if row.get("status") == "ok"}
     except Exception:
         return set()
 
@@ -146,11 +163,12 @@ def append_result_csv(
 
 
 def finalize_csv(path: str | Path) -> None:
-    """Sort the live CSV in-place: failed → invalid → ok.
+    """Deduplicate, then sort the live CSV in-place: failed → invalid → ok.
 
-    Reads all rows accumulated during the run (previous + new), sorts by
-    status so anomalies are visible at the top, then rewrites the file.
-    Uses QUOTE_ALL since all values are strings after CSV round-trip.
+    When a failed/invalid image is retried in an incremental run its old row
+    and new row both exist in the file.  We keep the best result per image_id
+    (ok beats invalid beats failed), then sort anomalies to the top.
+    Uses QUOTE_ALL since all values are strings after a CSV round-trip.
     """
     path = Path(path)
     if not path.exists():
@@ -159,8 +177,21 @@ def finalize_csv(path: str | Path) -> None:
         reader = csv.DictReader(f)
         fieldnames = list(reader.fieldnames) if reader.fieldnames else list(_INCREMENTAL_FIELDNAMES)
         rows = list(reader)
-    rows.sort(key=lambda r: _STATUS_ORDER.get(r.get("status", "ok"), 99))
+
+    # Deduplicate: keep the best status row per unique image_path (or composite
+    # fallback of image_id + view + specimen_id when image_path is absent).
+    best: dict[str, dict] = {}
+    for row in rows:
+        key = _row_key(row)
+        existing = best.get(key)
+        if existing is None:
+            best[key] = row
+        else:
+            if _STATUS_ORDER.get(row.get("status", "ok"), 99) > _STATUS_ORDER.get(existing.get("status", "ok"), 99):
+                best[key] = row
+
+    deduped = sorted(best.values(), key=lambda r: _STATUS_ORDER.get(r.get("status", "ok"), 99))
     with path.open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows(deduped)
