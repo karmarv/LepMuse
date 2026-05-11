@@ -67,6 +67,11 @@ def detect_outer_pix(half_binary, center):
         sp.ndimage.generate_binary_structure(2, 1)
     )
     regions = regionprops(markers)
+    if not regions:
+        raise ValueError(
+            "detect_outer_pix: no labeled regions found in half-wing mask — "
+            "segmentation mask may be empty or fully erased by antenna removal"
+        )
     areas = [r.area for r in regions]
     idx_max = np.argmax(areas)
 
@@ -112,12 +117,24 @@ def detect_inner_pix(half_binary, outer_pix, side):
     else:
         focus = half_binary[:lower_bound, :outer_pix[1]]
 
+    if focus.size == 0:
+        raise ValueError(
+            f"detect_inner_pix ({side}): focus region is zero-size "
+            f"(outer_pix col={outer_pix[1]}, half_binary shape={half_binary.shape}) — "
+            "outer pixel is at the edge of the half-wing mask"
+        )
+
     focus_inv = 1 - focus
 
     markers, _ = sp.ndimage.label(
         focus_inv, sp.ndimage.generate_binary_structure(2, 1)
     )
     regions = regionprops(markers)
+    if not regions:
+        raise ValueError(
+            f"detect_inner_pix ({side}): no labeled regions in focus_inv — "
+            "focus region may be entirely foreground with no background structure"
+        )
 
     # if idx in regions is not 0, bottom region is considered for inner_pix,
     # instead of top region
