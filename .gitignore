@@ -20,4 +20,4 @@ models/*.pkl # files at https://gitlab.com/mothra/mothra-data/-/tree/main/models
 # Ignoring VSCode/VSCodium files and folders.
 .vscode/*
 settings.json
-**/results/**/*.JPG
+**/uf_museum_battus/results/**/*.JPG
