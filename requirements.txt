@@ -1,0 +1,29 @@
+albumentations
+chardet
+exif
+fastai==2.8.7
+setuptools>=68.0
+tensorboard>=2.14
+fastcore==1.12.46
+fasttransform>=0.0.2
+ipython
+joblib==1.3.2
+openpyxl
+matplotlib>=3.6.1
+# numpy must stay <1.27 — pandas 2.0.3 and scipy 1.10.1 are compiled against
+# the NumPy 1.x ABI; NumPy 2.x changed the internal dtype struct size.
+numpy>=1.23.2,<1.27.0
+opencv-python-headless==4.9.0.80
+pooch
+pandas==2.0.3
+pytest-timeout
+scipy==1.10.1
+scikit-image==0.21.0
+
+#--extra-index-url https://download.pytorch.org/whl/cu116
+#torch==1.13.1+cu116
+#torchvision==0.14.1+cu116
+
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch==2.4.1
+torchvision==0.19.1

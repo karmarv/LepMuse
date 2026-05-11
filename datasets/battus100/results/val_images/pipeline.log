@@ -1,0 +1,294 @@
+Pipeline log: datasets/battus100/results/val_images/pipeline.log
+Loading UNet weights: runs/20260510_193738_resnet18_b2_e50_s800x1200/battus100_segm_c4_resnet18_b2_e50_s1200x800.pkl  (device=cuda)
+/home/rahul/miniconda3/envs/lepmuse/lib/python3.10/site-packages/fastai/learner.py:455: UserWarning: load_learner` uses Python's insecure pickle module, which can execute malicious arbitrary code when loading. Only load files you trust.
+If you only need to load model weights and optimizer state, use the safe `Learner.load` instead.
+  warn("load_learner` uses Python's insecure pickle module, which can execute malicious arbitrary code when loading. Only load files you trust.\nIf you only need to load model weights and optimizer state, use the safe `Learner.load` instead.")
+
+Image 1/20 : IMG_0001.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3455h × 224w  →  vertical
+Dense ruler strip: 3455h × 219w  abs=(0,951)
+Estimated ruler t-unit space in pixels - 31.41
+Measurements:
+* left_wing: 42.63 mm
+* right_wing: 43.82 mm
+* left_wing_center: 53.31 mm
+* right_wing_center: 53.29 mm
+* wing_span: 81.95 mm
+* wing_shoulder: 6.68 mm
+
+Image 2/20 : IMG_0023.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3439h × 229w  →  vertical
+Dense ruler strip: 3439h × 222w  abs=(16,992)
+Estimated ruler t-unit space in pixels - 31.27
+Measurements:
+* left_wing: 35.71 mm
+* right_wing: 37.24 mm
+* left_wing_center: 47.08 mm
+* right_wing_center: 46.97 mm
+* wing_span: 73.07 mm
+* wing_shoulder: 9.15 mm
+
+Image 3/20 : IMG_0067.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3426h × 231w  →  vertical
+Dense ruler strip: 3426h × 224w  abs=(29,990)
+Estimated ruler t-unit space in pixels - 31.15
+Measurements:
+* left_wing: 42.63 mm
+* right_wing: 40.13 mm
+* left_wing_center: 50.27 mm
+* right_wing_center: 49.92 mm
+* wing_span: 72.34 mm
+* wing_shoulder: 3.12 mm
+
+Image 4/20 : IMG_0094.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3455h × 258w  →  vertical
+Dense ruler strip: 3455h × 254w  abs=(0,1146)
+Estimated ruler t-unit space in pixels - 35.44
+Measurements:
+* left_wing: 32.7 mm
+* right_wing: 31.33 mm
+* left_wing_center: 38.19 mm
+* right_wing_center: 38.59 mm
+* wing_span: 58.98 mm
+* wing_shoulder: 4.07 mm
+
+Image 5/20 : IMG_0114.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3391h × 208w  →  vertical
+Dense ruler strip: 3391h × 206w  abs=(64,1003)
+Estimated ruler t-unit space in pixels - 30.82
+Measurements:
+* left_wing: 45.95 mm
+* right_wing: 46.27 mm
+* left_wing_center: 55.7 mm
+* right_wing_center: 56.07 mm
+* wing_span: 81.38 mm
+* wing_shoulder: 4.6 mm
+
+Image 6/20 : IMG_0134.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3455h × 249w  →  vertical
+Dense ruler strip: 3455h × 243w  abs=(0,1416)
+Estimated ruler t-unit space in pixels - 35.44
+Measurements:
+* left_wing: 45.75 mm
+* right_wing: 46.29 mm
+* left_wing_center: 55.48 mm
+* right_wing_center: 55.7 mm
+* wing_span: 81.14 mm
+* wing_shoulder: 4.41 mm
+
+Image 7/20 : IMG_0169.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3390h × 219w  →  vertical
+Dense ruler strip: 3390h × 209w  abs=(65,958)
+Estimated ruler t-unit space in pixels - 31.17
+Measurements:
+* left_wing: 42.88 mm
+* right_wing: 43.03 mm
+* left_wing_center: 51.99 mm
+* right_wing_center: 51.81 mm
+* wing_span: 77.69 mm
+* wing_shoulder: 5.61 mm
+
+Image 8/20 : IMG_0310.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3414h × 208w  →  vertical
+Dense ruler strip: 3414h × 205w  abs=(41,953)
+Estimated ruler t-unit space in pixels - 31.39
+Measurements:
+* left_wing: 41.19 mm
+* right_wing: 42.86 mm
+* left_wing_center: 49.83 mm
+* right_wing_center: 49.77 mm
+* wing_span: 84.08 mm
+* wing_shoulder: 5.61 mm
+
+Image 9/20 : IMG_0317.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3411h × 209w  →  vertical
+Dense ruler strip: 3411h × 205w  abs=(44,960)
+Estimated ruler t-unit space in pixels - 31.00
+Measurements:
+* left_wing: 45.07 mm
+* right_wing: 42.73 mm
+* left_wing_center: 55.23 mm
+* right_wing_center: 55.64 mm
+* wing_span: 76.56 mm
+* wing_shoulder: 3.59 mm
+
+Image 10/20 : IMG_1172.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3402h × 241w  →  vertical
+Dense ruler strip: 3402h × 234w  abs=(53,979)
+Estimated ruler t-unit space in pixels - 30.57
+Measurements:
+* left_wing: 40.61 mm
+* right_wing: 41.42 mm
+* left_wing_center: 51.14 mm
+* right_wing_center: 50.74 mm
+* wing_span: 68.88 mm
+* wing_shoulder: 2.17 mm
+
+Image 11/20 : IMG_1759.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3455h × 234w  →  vertical
+Dense ruler strip: 3455h × 227w  abs=(0,877)
+Estimated ruler t-unit space in pixels - 31.06
+Measurements:
+* left_wing: 42.91 mm
+* right_wing: 41.39 mm
+* left_wing_center: 52.26 mm
+* right_wing_center: 52.19 mm
+* wing_span: 76.18 mm
+* wing_shoulder: 6.09 mm
+
+Image 12/20 : IMG_2036.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3431h × 224w  →  vertical
+Dense ruler strip: 3431h × 217w  abs=(24,955)
+Estimated ruler t-unit space in pixels - 30.83
+Measurements:
+* left_wing: 44.65 mm
+* right_wing: 43.63 mm
+* left_wing_center: 48.3 mm
+* right_wing_center: 48.47 mm
+* wing_span: 93.94 mm
+* wing_shoulder: 6.31 mm
+
+Image 13/20 : IMG_2119.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3398h × 235w  →  vertical
+Dense ruler strip: 3398h × 230w  abs=(57,1022)
+Estimated ruler t-unit space in pixels - 30.90
+Measurements:
+* left_wing: 51.3 mm
+* right_wing: 49.48 mm
+* left_wing_center: 56.36 mm
+* right_wing_center: 56.33 mm
+* wing_span: 97.47 mm
+* wing_shoulder: 1.67 mm
+
+Image 14/20 : IMG_2338.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3381h × 215w  →  vertical
+Dense ruler strip: 3381h × 210w  abs=(74,990)
+Estimated ruler t-unit space in pixels - 30.73
+Measurements:
+* left_wing: 41.63 mm
+* right_wing: 38.64 mm
+* left_wing_center: 49.73 mm
+* right_wing_center: 49.52 mm
+* wing_span: 75.02 mm
+* wing_shoulder: 3.64 mm
+
+Image 15/20 : IMG_2895.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3455h × 230w  →  vertical
+Dense ruler strip: 3455h × 224w  abs=(0,899)
+Estimated ruler t-unit space in pixels - 30.71
+Measurements:
+* left_wing: 0.03 mm
+* right_wing: 18.26 mm
+* left_wing_center: 27.31 mm
+* right_wing_center: 37.6 mm
+* wing_span: 57.46 mm
+* wing_shoulder: 40.29 mm
+
+Image 16/20 : IMG_3153.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3431h × 219w  →  vertical
+Dense ruler strip: 3431h × 213w  abs=(24,876)
+Estimated ruler t-unit space in pixels - 30.83
+Measurements:
+* left_wing: 41.14 mm
+* right_wing: 40.75 mm
+* left_wing_center: 49.19 mm
+* right_wing_center: 49.5 mm
+* wing_span: 72.78 mm
+* wing_shoulder: 4.17 mm
+
+Image 17/20 : IMG_3872.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3437h × 2568w  →  vertical
+Dense ruler strip: 3437h × 228w  abs=(18,872)
+Estimated ruler t-unit space in pixels - 31.25
+Measurements:
+* left_wing: 52.29 mm
+* right_wing: 52.8 mm
+* left_wing_center: 63.63 mm
+* right_wing_center: 64.04 mm
+* wing_span: 86.01 mm
+* wing_shoulder: 4.43 mm
+
+Image 18/20 : IMG_4398.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3444h × 221w  →  vertical
+Dense ruler strip: 3444h × 215w  abs=(11,913)
+Estimated ruler t-unit space in pixels - 31.31
+Measurements:
+* left_wing: 37.73 mm
+* right_wing: 38.68 mm
+* left_wing_center: 45.93 mm
+* right_wing_center: 45.47 mm
+* wing_span: 73.82 mm
+* wing_shoulder: 4.64 mm
+
+Image 19/20 : IMG_4874.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3388h × 221w  →  vertical
+Dense ruler strip: 3388h × 211w  abs=(67,959)
+Estimated ruler t-unit space in pixels - 31.16
+Measurements:
+* left_wing: 42.03 mm
+* right_wing: 43.22 mm
+* left_wing_center: 51.26 mm
+* right_wing_center: 51.55 mm
+* wing_span: 82.95 mm
+* wing_shoulder: 6.92 mm
+
+Image 20/20 : IMG_5765.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3424h × 238w  →  vertical
+Dense ruler strip: 3424h × 234w  abs=(31,1059)
+Estimated ruler t-unit space in pixels - 35.57
+Measurements:
+* left_wing: 47.77 mm
+* right_wing: 47.46 mm
+* left_wing_center: 57.02 mm
+* right_wing_center: 57.84 mm
+* wing_span: 89.06 mm
+* wing_shoulder: 6.81 mm
+
+--- Evaluation ---
+mean_difference: -1.7542105263157894
+difference_sd: 3.296291881221228
+lower_bound: -8.346794288758245
+upper_bound: 4.8383732361266665
+outlier_measurements: 2
+outlier_images: 1
+matched_images: 19

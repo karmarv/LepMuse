@@ -1,0 +1,17 @@
+{
+  "input": "datasets/uf_museum_battus/metadata/eval_image_manifest.csv",
+  "output_folder": "datasets/uf_museum_battus/results/images",
+  "path_csv": "datasets/uf_museum_battus/results/results.csv",
+  "stage": "measurements",
+  "segmenter": "unet",
+  "weights": "runs/20260510_193738_resnet18_b2_e50_s800x1200/battus100_segm_c4_resnet18_b2_e50_s1200x800.pkl",
+  "auto_rotate": true,
+  "continue_on_error": true,
+  "write_failures": true,
+  "min_pixels_per_mm": 1.0,
+  "max_pixels_per_mm": 500.0,
+  "min_wing_mm": 5.0,
+  "max_wing_mm": 120.0,
+  "min_shoulder_mm": 1.0,
+  "max_wing_asymmetry_mm": 30.0
+}

@@ -1,0 +1,23 @@
+.pytest_cache
+\#*
+*~
+pictures/
+**/__pycache__
+input_images/
+figures/
+outputs/
+.ipynb_checkpoints/
+**/*.prof
+**/*.cache
+
+.ropeproject
+cachedir
+# Ignoring deep learning models.
+**/*.pt
+**/*.pth
+**/*.pkl 
+models/*.pkl # files at https://gitlab.com/mothra/mothra-data/-/tree/main/models
+# Ignoring VSCode/VSCodium files and folders.
+.vscode/*
+settings.json
+**/results/**/*.JPG

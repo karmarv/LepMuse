@@ -1,0 +1,6 @@
+{
+  "weights": "runs/20260510_193738_resnet18_b2_e50_s800x1200/battus100_segm_c4_resnet18_b2_e50_s1200x800.pkl",
+  "image_dir": "datasets/battus100/val_images/images",
+  "mask_dir": "datasets/battus100/val_images/labels",
+  "output_csv": "datasets/battus100/results/segmentation_eval.csv"
+}

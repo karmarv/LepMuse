@@ -1,0 +1,47 @@
+Pipeline log: datasets/battus10/results/val_images/pipeline.log
+Loading UNet weights: runs/20260510_193738_resnet18_b2_e50_s800x1200/battus100_segm_c4_resnet18_b2_e50_s1200x800.pkl  (device=cuda)
+/home/rahul/miniconda3/envs/lepmuse/lib/python3.10/site-packages/fastai/learner.py:455: UserWarning: load_learner` uses Python's insecure pickle module, which can execute malicious arbitrary code when loading. Only load files you trust.
+If you only need to load model weights and optimizer state, use the safe `Learner.load` instead.
+  warn("load_learner` uses Python's insecure pickle module, which can execute malicious arbitrary code when loading. Only load files you trust.\nIf you only need to load model weights and optimizer state, use the safe `Learner.load` instead.")
+
+Image 1/3 : IMG_2895.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3455h × 230w  →  vertical
+Dense ruler strip: 3455h × 224w  abs=(0,899)
+Estimated ruler t-unit space in pixels - 30.71
+Measurements:
+* left_wing: 0.03 mm
+* right_wing: 18.26 mm
+* left_wing_center: 27.31 mm
+* right_wing_center: 37.6 mm
+* wing_span: 57.46 mm
+* wing_shoulder: 40.29 mm
+
+Image 2/3 : IMG_3870.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3430h × 233w  →  vertical
+Dense ruler strip: 3430h × 226w  abs=(25,872)
+Estimated ruler t-unit space in pixels - 31.18
+Measurements:
+* left_wing: 51.0 mm
+* right_wing: 51.89 mm
+* left_wing_center: 60.77 mm
+* right_wing_center: 61.04 mm
+* wing_span: 83.45 mm
+* wing_shoulder: 1.08 mm
+
+Image 3/3 : IMG_4541.JPG
+EXIF orientation: not found or unreadable — skipping rotation
+Processing UNet segmentation...
+█ |----------------------------------------------------------------------------------------------------| 0.00% [0/1 00:00<?] |████████████████████████████████████████████████████████████████████████████████████████████████████| 100.00% [1/1 00:00<00:00]                                                                                                                                                                                                                                                                  Ruler bounding box: 3444h × 785w  →  vertical
+Dense ruler strip: 3444h × 205w  abs=(11,919)
+Estimated ruler t-unit space in pixels - 30.96
+Measurements:
+* left_wing: 44.87 mm
+* right_wing: 44.84 mm
+* left_wing_center: 54.08 mm
+* right_wing_center: 54.42 mm
+* wing_span: 82.29 mm
+* wing_shoulder: 4.88 mm

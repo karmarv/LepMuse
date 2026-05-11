@@ -1,0 +1,2 @@
+image_id,actual_left,actual_right,predicted_left,predicted_right,left_wing_center (mm),right_wing_center (mm),wing_span (mm),wing_shoulder (mm),image_path,view,specimen_id,stage,segmenter,pixels_per_mm,status,error,left_diff,right_diff,left_SD,right_SD
+IMG_2036.JPG,60.25,56.44,44.65,43.63,48.3,48.47,93.94,6.31,datasets/battus100/val_images/images/IMG_2036.JPG,,,measurements,unet,30.831460674157302,ok,,-15.600000000000001,-12.809999999999995,-4.200413668632569,-3.3540080405707875

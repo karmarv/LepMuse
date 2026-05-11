@@ -1,0 +1,1 @@
+image_id,actual_left,actual_right,predicted_left,predicted_right,left_wing_center (mm),right_wing_center (mm),wing_span (mm),wing_shoulder (mm),image_path,view,specimen_id,stage,segmenter,pixels_per_mm,status,error,left_diff,right_diff,left_SD,right_SD

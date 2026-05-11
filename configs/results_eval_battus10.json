@@ -1,0 +1,13 @@
+{
+  "actual": "datasets/battus10/val_images/manual_labels.csv",
+  "predicted": "datasets/battus10/results/val_images/results.csv",
+  "image_name_column": "image_id",
+  "actual_left_column": "left_wing (mm)",
+  "actual_right_column": "right_wing (mm)",
+  "predicted_left_column": "left_wing (mm)",
+  "predicted_right_column": "right_wing (mm)",
+  "sd_threshold": 2.0,
+  "output_plot": "datasets/battus10/results/result_plot.png",
+  "output_comparison_csv": "datasets/battus10/results/comparison.csv",
+  "output_outliers_csv": "datasets/battus10/results/outliers.csv"
+}

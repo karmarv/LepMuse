@@ -1,0 +1,4 @@
+image_id,left_wing (mm),right_wing (mm),left_wing_center (mm),right_wing_center (mm),wing_span (mm),wing_shoulder (mm),image_path,view,specimen_id,stage,segmenter,pixels_per_mm,status,error
+IMG_2895.JPG,0.03,18.26,27.31,37.6,57.46,40.29,datasets/battus10/val_images/images/IMG_2895.JPG,,,measurements,unet,30.711111111111112,invalid,left_wing outside range: 0.03
+IMG_3870.JPG,51.0,51.89,60.77,61.04,83.45,1.08,datasets/battus10/val_images/images/IMG_3870.JPG,,,measurements,unet,31.181818181818183,ok,
+IMG_4541.JPG,44.87,44.84,54.08,54.42,82.29,4.88,datasets/battus10/val_images/images/IMG_4541.JPG,,,measurements,unet,30.95505617977528,ok,

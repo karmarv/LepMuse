@@ -1,0 +1,7 @@
+{
+  "metadata_path": "datasets/uf_museum_battus/metadata/231017_Battus_philenor_polydamas_FLMNH.xlsx",
+  "images_root": "/home/rahul/workspace/data/UF_museum_data_2023",
+  "output_manifest_csv": "datasets/uf_museum_battus/metadata/eval_image_manifest.csv",
+  "output_paths_csv": "datasets/uf_museum_battus/metadata/eval_image_paths.csv",
+  "output_missing_csv": "datasets/uf_museum_battus/metadata/eval_image_missing.csv"
+}

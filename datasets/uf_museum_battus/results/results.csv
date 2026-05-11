@@ -1,0 +1,5 @@
+"image_id","left_wing (mm)","right_wing (mm)","left_wing_center (mm)","right_wing_center (mm)","wing_span (mm)","wing_shoulder (mm)","image_path","view","specimen_id","stage","segmenter","pixels_per_mm","status","error"
+"IMG_1171.JPG",42.78,42.54,52.83,52.49,71.43,3.84,"/home/rahul/workspace/data/UF_museum_data_2023/Battus philenor/Kailee Stover/20230410/IMG_1171.JPG","dorsal","1142797","measurements","unet",30.988636363636363,"ok",""
+"IMG_1180.JPG",46.22,44.02,53.27,53.74,86.45,4.36,"/home/rahul/workspace/data/UF_museum_data_2023/Battus philenor/Kailee Stover/20230410/IMG_1180.JPG","ventral","1142801","measurements","unet",30.747126436781606,"ok",""
+"IMG_1184.JPG",39.49,38.93,49.94,49.8,70.79,5.61,"/home/rahul/workspace/data/UF_museum_data_2023/Battus philenor/Kailee Stover/20230410/IMG_1184.JPG","ventral","1142803","measurements","unet",30.71264367816092,"ok",""
+"IMG_1177.JPG",45.77,46.26,57.36,57.63,76.26,4.21,"/home/rahul/workspace/data/UF_museum_data_2023/Battus philenor/Kailee Stover/20230410/IMG_1177.JPG","dorsal","1142800","measurements","unet",30.662921348314608,"ok",""
