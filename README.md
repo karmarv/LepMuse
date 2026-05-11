@@ -17,7 +17,7 @@ LepMuse measures *Battus* butterfly specimens from UF Museum image batches. It i
 - [x] Run measurement pipeline on validation images — [(A.) Evaluate measurement pipeline](#a-evaluate-measurement-pipeline)
 - [x] Compare predicted measurements to manual ground truth — [(B.) Compare predictions to manual labels](#b-compare-predictions-to-manual-labels)
 - [x] Evaluate UNet segmentation masks on held-out images — [(C.) Evaluate segmentation model](#c-evaluate-segmentation-model)
-- [ ] Run the full pipeline on all UF Museum specimens
+- [x] Run the full pipeline on all UF Museum specimens — [(D.) UF Museum evaluations](#d-uf-museum-evaluations---complete-pipeline-batch-run)
 - [ ] Spot check results on random images for verification
 
 ---
@@ -207,39 +207,7 @@ Full run log at [`datasets/battus100/results/val_images/pipeline.log`](datasets/
 | ![IMG_0114](datasets/battus100/results/val_images/IMG_0114.JPG) | ![IMG_1759](datasets/battus100/results/val_images/IMG_1759.JPG) | ![IMG_3872](datasets/battus100/results/val_images/IMG_3872.JPG) |
 | ![IMG_0134](datasets/battus100/results/val_images/IMG_0134.JPG) | ![IMG_4874](datasets/battus100/results/val_images/IMG_4874.JPG) | ![IMG_5765](datasets/battus100/results/val_images/IMG_5765.JPG) |
 
-### UF Museum batch run
-
-Config: [`configs/uf_museum_manifest.json`](configs/uf_museum_manifest.json) · [`configs/pipeline_uf_museum_unet.json`](configs/pipeline_uf_museum_unet.json)
-
-- **Step 1**: generate image manifest from metadata
-    ```bash
-    python -m datasets.uf_museum_battus.metadata --config configs/uf_museum_manifest.json
-    ```
-    - Override individual fields if your images live elsewhere:
-        ```bash
-        python -m datasets.uf_museum_battus.metadata \
-        --config configs/uf_museum_manifest.json \
-        --images-root /path/to/UF_museum_data_2023 \
-        --output-manifest-csv datasets/uf_museum_battus/metadata/eval_image_manifest.csv \
-        --output-paths-csv    datasets/uf_museum_battus/metadata/eval_image_paths.csv \
-        --output-missing-csv  datasets/uf_museum_battus/metadata/eval_image_missing.csv
-        ```
-    - Outputs written to `datasets/uf_museum_battus/metadata/`:
-        - `eval_image_manifest.csv` — image paths with specimen metadata (used as pipeline input)
-        - `eval_image_paths.csv` — flat list of image paths
-        - `eval_image_missing.csv` — rows from the spreadsheet where images were not found on disk
-- **Step 2**: run measurement pipeline
-    ```bash
-    python -m lepmuse.cli --config configs/pipeline_uf_museum_unet.json -ar
-    ```
-
-Outputs written to `datasets/uf_museum_battus/results/`:
-- `results.csv` — per-specimen measurements
-- `images/pipeline.log` — full run transcript
-
-Sample specimen from the UF Museum dataset:
-
-![BattusPhilenor_KS_20230424_IMG_1563](datasets/uf_museum_battus/samples/BattusPhilenor_KS_20230424_IMG_1563.JPG)
+See [(D.) UF Museum evaluations — Complete pipeline batch run](#d-uf-museum-evaluations---complete-pipeline-batch-run).
 
 ---
 
@@ -330,6 +298,47 @@ IMG_2338.JPG   ok    0.9891
 Results written to [`datasets/battus100/results/segmentation_eval.csv`](datasets/battus100/results/segmentation_eval.csv). The metric reported is foreground pixel accuracy (`acc_camvid`) — the fraction of non-background pixels correctly classified across the four segmentation classes: `background`, `lepidopteran`, `tags`, `ruler`.
 
 For a full training run, segmentation evaluation workflow, and the SAM2 plug-in guide see [MODEL.md](MODEL.md).
+
+---
+
+## (D.) UF Museum evaluations - Complete pipeline batch run
+
+Config: [`configs/uf_museum_manifest.json`](configs/uf_museum_manifest.json) · [`configs/pipeline_uf_museum_unet.json`](configs/pipeline_uf_museum_unet.json)
+
+- **Step 1**: generate image manifest from metadata
+    ```bash
+    python -m datasets.uf_museum_battus.metadata --config configs/uf_museum_manifest.json
+    ```
+    - Override individual fields if your images live elsewhere:
+        ```bash
+        python -m datasets.uf_museum_battus.metadata \
+        --config configs/uf_museum_manifest.json \
+        --images-root /path/to/UF_museum_data_2023 \
+        --output-manifest-csv datasets/uf_museum_battus/metadata/eval_image_manifest.csv \
+        --output-paths-csv    datasets/uf_museum_battus/metadata/eval_image_paths.csv \
+        --output-missing-csv  datasets/uf_museum_battus/metadata/eval_image_missing.csv
+        ```
+    - Outputs written to `datasets/uf_museum_battus/metadata/`:
+        - `eval_image_manifest.csv` — image paths with specimen metadata (used as pipeline input)
+        - `eval_image_paths.csv` — flat list of image paths
+        - `eval_image_missing.csv` — rows from the spreadsheet where images were not found on disk
+- **Step 2**: run measurement pipeline
+    ```bash
+    python -m lepmuse.cli \
+      --config configs/pipeline_uf_museum_unet.json \
+      -ar -pp --workers 4
+    ```
+    - The run is incremental: if interrupted, re-running the same command resumes from where it stopped (images with `status=ok` are skipped; `failed` and `invalid` are retried automatically).
+    - For a full re-run from scratch, delete `datasets/uf_museum_battus/results/results.csv` before running.
+
+Outputs written to `datasets/uf_museum_battus/results/`:
+- `results.csv` — per-specimen measurements, sorted by status (failed → invalid → ok)
+- `images/pipeline.log` — full run transcript (ANSI-clean, progress bars collapsed)
+- `images/<image_id>_<specimen_id>.JPG` — detailed per-image diagnostic plots
+
+Sample specimen from the UF Museum dataset:
+
+![BattusPhilenor_KS_20230424_IMG_1563](datasets/uf_museum_battus/samples/BattusPhilenor_KS_20230424_IMG_1563.JPG)
 
 ---
 
